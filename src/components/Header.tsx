@@ -27,8 +27,8 @@ export function Header() {
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link to="/" className="flex items-center gap-3 group">
+            <div className="flex items-center h-full">
+              <Link to="/" className="flex items-center gap-3 group h-full py-2">
                 <div className="w-8 h-8 bg-amber-400 rounded-lg flex items-center justify-center font-bold text-slate-900 transition-colors">
                   H
                 </div>
@@ -39,15 +39,15 @@ export function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-1">
+            <nav className="hidden lg:flex space-x-1 items-center h-full">
               {primaryNav.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   className={cn(
-                    'px-3 py-2 text-sm font-medium transition-colors',
+                    'px-3 py-2 text-sm font-medium transition-colors flex items-center h-full min-h-[48px]',
                     (item.isActive || location.pathname === item.href)
-                      ? 'text-amber-600 border-b-2 border-amber-500 pb-1'
+                      ? 'text-amber-600 border-b-2 border-amber-500'
                       : 'text-slate-600 hover:text-amber-600'
                   )}
                 >
@@ -57,12 +57,13 @@ export function Header() {
             </nav>
 
             {/* Mobile menu button */}
-            <div className="flex lg:hidden items-center">
+            <div className="flex lg:hidden items-center h-full">
               <button
                 type="button"
-                className="text-gray-500 hover:text-gray-600 p-3 -mr-2 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="text-gray-500 hover:text-gray-600 p-3 -mr-2 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[48px] min-w-[48px] flex justify-center items-center"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMenuOpen}
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>

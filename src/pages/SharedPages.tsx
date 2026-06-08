@@ -1,4 +1,5 @@
 import { Hexagon } from 'lucide-react';
+import { AdContainer } from '../components/AdContainer';
 
 export function About() {
   return (
@@ -11,7 +12,7 @@ export function About() {
           <h1 className="text-3xl font-bold text-slate-900 tracking-tight">About Honeybee</h1>
         </div>
         
-        <div className="glass-card rounded-2xl p-8 max-w-none text-slate-600 shadow-sm text-sm leading-relaxed">
+        <div className="glass-card rounded-2xl p-8 max-w-none text-slate-600 shadow-sm text-sm leading-relaxed mb-8">
           <p className="text-base mb-6">
             Honeybee is part of the <strong className="text-slate-900 font-semibold">Rural Utility Cost</strong> master ecosystem. We focus on beekeeping, apiary planning, and hive-related estimation to help rural property owners and agricultural decision-makers.
           </p>
@@ -26,6 +27,8 @@ export function About() {
             As a module within the Rural Utility Cost platform, Honeybee shares a unified approach to data privacy, user experience, and practical utility. You can trust that the tools here are built with the same rigorous standards as our property, forecasting, and master planning calculators.
           </p>
         </div>
+
+        <AdContainer slot="about-inline-ad" location="About Page Footer" />
       </div>
     </div>
   );
@@ -42,11 +45,65 @@ export function Contact() {
           <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Contact Us</h1>
         </div>
         <p className="text-slate-600 mb-8 text-sm">
-          For inquiries regarding the Honeybee app or the broader Rural Utility Cost platform, please reach out to our core team.
+          For inquiries regarding the Honeybee app or the broader Rural Utility Cost platform, please use the form below.
         </p>
+        
+        <div className="glass-card rounded-xl p-8 shadow-sm mb-8">
+          <form className="space-y-6" onSubmit={(e) => {
+            e.preventDefault();
+            if (typeof window !== 'undefined' && 'gtag' in window) {
+              // @ts-ignore
+              window.gtag('event', 'click', { element: 'contact_submit_button' });
+            }
+            alert('Form submitted successfully!');
+          }}>
+            <div>
+              <label htmlFor="name" className="block text-sm font-semibold text-slate-900 mb-2">Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all bg-white min-h-[48px]"
+                aria-required="true"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all bg-white min-h-[48px]"
+                aria-required="true"
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-semibold text-slate-900 mb-2">Message</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows={5} 
+                required 
+                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all bg-white"
+                aria-required="true"
+              ></textarea>
+            </div>
+            <button 
+              type="submit"
+              className="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[48px]"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
         <div className="glass-card rounded-xl p-8 shadow-sm">
           <p className="text-xs font-bold tracking-wider text-slate-500 uppercase mb-2">Support Email</p>
-          <a href="mailto:support@ruralutilitycost.com" className="text-base font-semibold text-amber-600 hover:text-amber-700 transition-colors">support@ruralutilitycost.com</a>
+          <a href="mailto:support@ruralutilitycost.com" className="text-base font-semibold text-amber-600 hover:text-amber-700 transition-colors py-2 block">
+            support@ruralutilitycost.com
+          </a>
         </div>
       </div>
     </div>
