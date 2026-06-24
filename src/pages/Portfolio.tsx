@@ -29,6 +29,8 @@ export function Portfolio() {
                   <a 
                     key={site.name}
                     href={site.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="glass-card rounded-xl p-6 hover:border-amber-400 hover:shadow-md transition-all group block h-full flex flex-col focus:outline-none focus:ring-2 focus:ring-amber-500"
                   >
                     <div className="flex items-start justify-between mb-3">

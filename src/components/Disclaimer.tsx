@@ -15,7 +15,7 @@ export function Disclaimer({ type = 'inline', overrideText, className }: Disclai
   if (type === 'footer') {
     return (
       <div className={cn("text-[10px] md:text-[11px] text-slate-400 leading-relaxed", className)}>
-        {overrideText || SHORT_DISCLAIMER} <a href="https://ruralutilitycost.com/disclaimer" className="underline hover:text-slate-600 whitespace-nowrap">Read full disclaimer.</a>
+        {overrideText || SHORT_DISCLAIMER} <a href="https://ruralutilitycost.com/disclaimer" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-600 whitespace-nowrap">Read full disclaimer.</a>
       </div>
     );
   }
@@ -25,7 +25,7 @@ export function Disclaimer({ type = 'inline', overrideText, className }: Disclai
       <div className={cn("bg-amber-50/80 backdrop-blur-sm border border-amber-200/60 rounded-xl p-4 sm:p-5 flex items-start gap-4 text-amber-900 shadow-sm transition-all", className)}>
         <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5 text-amber-600" aria-hidden="true" />
         <p className="text-xs sm:text-sm leading-relaxed font-medium">
-          {overrideText || DEFAULT_DISCLAIMER} <a href="https://ruralutilitycost.com/disclaimer" className="underline hover:text-amber-800 ml-1">Read full disclaimer.</a>
+          {overrideText || DEFAULT_DISCLAIMER} <a href="https://ruralutilitycost.com/disclaimer" target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-800 ml-1">Read full disclaimer.</a>
         </p>
       </div>
     );

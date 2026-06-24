@@ -9,12 +9,12 @@ export function Footer() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6 text-[11px] text-slate-400 font-medium mb-6">
             <div className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3 uppercase tracking-wider">
-              <a href="https://ruralutilitycost.com/about" className="hover:text-slate-600 transition-colors">About Us</a>
-              <a href="https://ruralutilitycost.com/portfolio" className="hover:text-slate-600 transition-colors">Portfolio</a>
-              <a href="https://ruralutilitycost.com/contact" className="hover:text-slate-600 transition-colors">Contact Us</a>
-              <a href="https://ruralutilitycost.com/privacy-policy" className="hover:text-slate-600 transition-colors">Privacy Policy</a>
-              <a href="https://ruralutilitycost.com/terms-of-use" className="hover:text-slate-600 transition-colors">Terms of Use</a>
-              <a href="https://ruralutilitycost.com/disclaimer" className="hover:text-slate-600 transition-colors">Disclaimer</a>
+              <a href="https://ruralutilitycost.com/about" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">About Us</a>
+              <a href="https://ruralutilitycost.com/portfolio" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Portfolio</a>
+              <a href="https://ruralutilitycost.com/contact" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Contact Us</a>
+              <a href="https://ruralutilitycost.com/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Privacy Policy</a>
+              <a href="https://ruralutilitycost.com/terms-of-use" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Terms of Use</a>
+              <a href="https://ruralutilitycost.com/disclaimer" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Disclaimer</a>
             </div>
           </div>
 

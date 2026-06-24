@@ -8,22 +8,17 @@ export function Header() {
   const location = useLocation();
 
   const primaryNav = [
-    { name: 'Home', href: '/', isExternal: true },
-    { name: 'Plan', href: '/plan', isExternal: true },
-    { name: 'Forecast', href: '/forecast', isExternal: true },
-    { name: 'Compliance Vault', href: '/compliance-vault' },
-    { name: 'Inspector Mode', href: '/inspector-mode' },
+    { name: 'Platform', href: 'https://ruralutilitycost.com/', isExternal: true },
+    { name: 'Plan', href: 'https://plan.ruralutilitycost.com/', isExternal: true },
+    { name: 'Forecast', href: 'https://forecast.ruralutilitycost.com/', isExternal: true },
+    { name: 'What-If', href: 'https://whatif.ruralutilitycost.com/', isExternal: true },
+    { name: 'Portfolio', href: '/portfolio' },
     { name: 'Honeybee', href: '/', isActive: true },
     { name: 'My favorites', href: '/favorites' },
   ];
 
   return (
     <>
-      <div className="bg-red-50 border-b border-red-200 px-4 py-2 flex items-center justify-center gap-2 text-red-800 text-sm font-medium">
-        <ShieldAlert className="w-4 h-4 text-red-600" />
-        <span className="uppercase tracking-wider mr-2 font-bold">Red Flag Alert Status:</span> 
-        No Arsentic, Nitrate, or Coliform threshold violations detected in current sampling period. Verification Status: Pending Human Verification.
-      </div>
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center h-16">
@@ -41,18 +36,30 @@ export function Header() {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-1 items-center h-full">
               {primaryNav.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={cn(
-                    'px-3 py-2 text-sm font-medium transition-colors flex items-center h-full min-h-[48px]',
-                    (item.isActive || location.pathname === item.href)
-                      ? 'text-amber-600 border-b-2 border-amber-500'
-                      : 'text-slate-600 hover:text-amber-600'
-                  )}
-                >
-                  {item.name}
-                </Link>
+                item.isExternal ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-2 text-sm font-medium transition-colors flex items-center h-full min-h-[48px] text-slate-600 hover:text-amber-600"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={cn(
+                      'px-3 py-2 text-sm font-medium transition-colors flex items-center h-full min-h-[48px]',
+                      (item.isActive || location.pathname === item.href)
+                        ? 'text-amber-600 border-b-2 border-amber-500'
+                        : 'text-slate-600 hover:text-amber-600'
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </nav>
 
@@ -76,19 +83,31 @@ export function Header() {
           <div className="lg:hidden border-t border-gray-100 bg-white shadow-lg absolute w-full left-0">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {primaryNav.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={cn(
-                    'block px-3 py-3 rounded-md text-base font-medium transition-colors',
-                    (item.isActive || location.pathname === item.href)
-                      ? 'text-amber-600 border-l-4 border-amber-500 bg-amber-50'
-                      : 'text-slate-600 hover:text-amber-600 hover:bg-slate-50'
-                  )}
-                >
-                  {item.name}
-                </Link>
+                item.isExternal ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-3 py-3 rounded-md text-base font-medium transition-colors text-slate-600 hover:text-amber-600 hover:bg-slate-50"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={cn(
+                      'block px-3 py-3 rounded-md text-base font-medium transition-colors',
+                      (item.isActive || location.pathname === item.href)
+                        ? 'text-amber-600 border-l-4 border-amber-500 bg-amber-50'
+                        : 'text-slate-600 hover:text-amber-600 hover:bg-slate-50'
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </div>
           </div>
