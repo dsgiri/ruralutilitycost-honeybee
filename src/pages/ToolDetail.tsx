@@ -2,9 +2,16 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 import { TOOLS } from '../data/tools';
 import { Disclaimer } from '../components/Disclaimer';
-import { AdContainer } from '../components/AdContainer';
 import { cn } from '../lib/utils';
 import * as Icons from 'lucide-react';
+import { HoneyEstimator } from '../components/calculators/HoneyEstimator';
+import { HiveCostCalculator } from '../components/calculators/HiveCostCalculator';
+import { SwarmPlanner } from '../components/calculators/SwarmPlanner';
+import { QueenTimeline } from '../components/calculators/QueenTimeline';
+import { SyrupMixer } from '../components/calculators/SyrupMixer';
+import { ApiarySetup } from '../components/calculators/ApiarySetup';
+import { HarvestYield } from '../components/calculators/HarvestYield';
+import { SeasonChecklist } from '../components/calculators/SeasonChecklist';
 
 export function ToolDetail() {
   const { toolId } = useParams();
@@ -54,20 +61,39 @@ export function ToolDetail() {
         </div>
 
         {/* Calculator Interface Placeholder */}
-        <div className="glass-card rounded-2xl p-8 sm:p-12 shadow-sm mb-8 min-h-[400px] flex flex-col items-center justify-center border-2 border-dashed border-slate-300 bg-white/50">
-          <IconComponent className="w-16 h-16 text-slate-200 mb-4" />
-          <h3 className="text-xl font-semibold text-slate-700 mb-2">Calculator Interface</h3>
-          <p className="text-slate-500 text-center max-w-md">
-            The interactive calculator interface for <strong>{tool.title}</strong> will be implemented here. It will accept user inputs and display the <em>{tool.primaryOutcome}</em>.
-          </p>
-        </div>
+        {(() => {
+          switch (tool.id) {
+            case 't-honey-estimator':
+              return <HoneyEstimator />;
+            case 't-hive-cost':
+              return <HiveCostCalculator />;
+            case 't-swarm-planner':
+              return <SwarmPlanner />;
+            case 't-queen-timeline':
+              return <QueenTimeline />;
+            case 't-syrup-mixer':
+              return <SyrupMixer />;
+            case 't-apiary-setup':
+              return <ApiarySetup />;
+            case 't-harvest-yield':
+              return <HarvestYield />;
+            case 't-season-checklist':
+              return <SeasonChecklist />;
+            default:
+              return (
+                <div className="glass-card rounded-2xl p-8 sm:p-12 shadow-sm mb-8 min-h-[400px] flex flex-col items-center justify-center border-2 border-dashed border-slate-300 bg-white/50">
+                  <IconComponent className="w-16 h-16 text-slate-200 mb-4" />
+                  <h3 className="text-xl font-semibold text-slate-700 mb-2">Calculator Interface</h3>
+                  <p className="text-slate-500 text-center max-w-md">
+                    The interactive calculator interface for <strong>{tool.title}</strong> will be implemented here. It will accept user inputs and display the <em>{tool.primaryOutcome}</em>.
+                  </p>
+                </div>
+              );
+          }
+        })()}
 
         {/* Unified Tool Disclaimer */}
         <Disclaimer type="inline" />
-
-        <div className="mt-12 pt-8 border-t border-slate-200">
-          <AdContainer slot="calculator-bottom-ad" location="Calculator Bottom" />
-        </div>
       </div>
     </div>
   );

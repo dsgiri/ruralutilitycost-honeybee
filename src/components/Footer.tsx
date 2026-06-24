@@ -1,4 +1,3 @@
-import { AdContainer } from './AdContainer';
 import { Disclaimer } from './Disclaimer';
 
 export function Footer() {
@@ -6,11 +5,6 @@ export function Footer() {
 
   return (
     <>
-      {/* Footer Ad Placement */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 w-full">
-        <AdContainer slot="footer-ad-bottom" location="Footer Bottom" />
-      </div>
-
       <footer className="bg-white border-t border-slate-200 mt-auto px-4 sm:px-8 py-8 w-full">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6 text-[11px] text-slate-400 font-medium mb-6">

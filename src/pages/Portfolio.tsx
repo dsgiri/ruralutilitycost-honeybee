@@ -1,6 +1,5 @@
 import { ExternalLink } from 'lucide-react';
 import { portfolioSites } from '../data/portfolioParser';
-import { AdContainer } from '../components/AdContainer';
 import { Disclaimer } from '../components/Disclaimer';
 
 export function Portfolio() {
@@ -16,8 +15,6 @@ export function Portfolio() {
             calculators, and forecasting tools for agriculture, conservation, and rural infrastructure.
           </p>
         </div>
-
-        <AdContainer slot="portfolio-top-ad" location="Portfolio Top" />
 
         {/* Group by category */}
         {categories.map(category => {

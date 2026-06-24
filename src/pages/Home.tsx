@@ -1,16 +1,10 @@
 import { TOOLS, CATEGORIES } from '../data/tools';
 import { ToolCard } from '../components/ToolCard';
 import { ArrowDown, Hexagon } from 'lucide-react';
-import { AdContainer } from '../components/AdContainer';
 
 export function Home() {
   return (
     <div className="bg-transparent min-h-screen pb-12">
-      {/* Header Ad Placement */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 hidden sm:block">
-        <AdContainer slot="header-ad-1" location="Header Top" />
-      </div>
-
       {/* Hero Section */}
       <section className="relative overflow-hidden mb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
